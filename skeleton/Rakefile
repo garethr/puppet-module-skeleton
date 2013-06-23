@@ -1,0 +1,13 @@
+require 'puppetlabs_spec_helper/rake_tasks'
+require 'puppet-lint/tasks/puppet-lint'
+require 'puppet-syntax/tasks/puppet-syntax'
+require 'rspec-system/rake_task'
+
+PuppetLint.configuration.log_format = "%{path}:%{linenumber}:%{check}:%{KIND}:%{message}"
+
+# Puppet 2.6.2 doesn't support default paramater values based on inheriting the params
+# class. I'd rather not support versions before 2.6.2 than add all the extra syntax.
+# see http://puppet-lint.com/checks/class_parameter_defaults/ for details
+PuppetLint.configuration.send('disable_class_parameter_defaults')
+
+PuppetSyntax.exclude_paths = ["pkg/**/*"]

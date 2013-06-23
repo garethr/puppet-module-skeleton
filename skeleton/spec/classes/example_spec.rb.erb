@@ -1,0 +1,25 @@
+require 'spec_helper'
+
+describe '<%= metadata.name %>' do
+  let(:title) { '<%= metadata.name %>' }
+
+  ['Debian', 'RedHat'].each do |osfamily|
+    describe "<%= metadata.name %> class without any parameters on #{osfamily}" do 
+      let(:params) {{ }}
+      let(:facts) { { :osfamily => osfamily } }
+
+      it { should create_class('<%= metadata.name %>') }
+      it { should create_package('<%= metadata.name %>') }
+      it { should create_file('/etc/<%= metadata.name %>.conf') }
+      it {
+        should create_file('/etc/<%= metadata.name %>.conf')\
+        .with_content(/^server pool.<%= metadata.name %>.org$/)
+      }
+      if osfamily == 'RedHat' 
+        it { should create_service('<%= metadata.name %>d') }
+      else
+        it { should create_service('<%= metadata.name %>') }
+      end
+    end
+  end
+end

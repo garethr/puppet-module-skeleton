@@ -1,0 +1,18 @@
+# == Class <%= metadata.name %>::params
+#
+# This class is meant to be called from <%= metadata.name %>
+# It set variable according to platform
+#
+class <%= metadata.name %>::params {
+  case $::osfamily {
+    'Debian': {
+      $service_provider = upstart
+    }
+    'RedHat', 'Amazon': {
+      $service_provider = redhat
+    }
+    default: {
+      fail("${::operatingsystem} not supported")
+    }
+  }
+}
