@@ -11,3 +11,10 @@ PuppetLint.configuration.log_format = "%{path}:%{linenumber}:%{check}:%{KIND}:%{
 PuppetLint.configuration.send('disable_class_parameter_defaults')
 
 PuppetSyntax.exclude_paths = ["pkg/**/*"]
+
+desc "Run syntax, lint, and spec tests."
+task :test => [
+  :syntax,
+  :lint,
+  :spec,
+]
