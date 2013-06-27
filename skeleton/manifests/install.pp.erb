@@ -1,4 +1,7 @@
 # == Class <%= metadata.name %>::intall
 #
 class <%= metadata.name %>::install {
+  package { $<%= metadata.name %>::params::package_name:
+    ensure => present,
+  }
 }
