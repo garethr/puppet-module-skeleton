@@ -13,7 +13,10 @@ class <%= metadata.name %> (
   # validate parameters here
 
   class { '<%= metadata.name %>::install': } ->
-  class { '<%= metadata.name %>::config': } ~>
+  class { '<%= metadata.name %>::config': }
   class { '<%= metadata.name %>::service': } ->
   Class['<%= metadata.name %>']
+
+  Class['<%= metadata.name %>::install'] ~> Class['<%= metadata.name %>::service']
+  Class['<%= metadata.name %>::config'] ~> Class['<%= metadata.name %>::service']
 }
