@@ -4,10 +4,25 @@ require 'puppet-syntax/tasks/puppet-syntax'
 require 'rspec-system/rake_task'
 
 PuppetLint.configuration.log_format = "%{path}:%{linenumber}:%{check}:%{KIND}:%{message}"
+PuppetLint.configuration.fail_on_warnings = true
 
-# Puppet 2.6.2 doesn't support default paramater values based on inheriting the params
-# class. I'd rather not support versions before 2.6.2 than add all the extra syntax.
-# see http://puppet-lint.com/checks/class_parameter_defaults/ for details
+# Forsake support for Puppet 2.6.2 for the benefit of cleaner code.
+# http://puppet-lint.com/checks/class_parameter_defaults/
 PuppetLint.configuration.send('disable_class_parameter_defaults')
+# http://puppet-lint.com/checks/class_inherits_from_params_class/
+PuppetLint.configuration.send('disable_class_inherits_from_params_class')
 
-PuppetSyntax.exclude_paths = ["pkg/**/*"]
+exclude_paths = [
+  "pkg/**/*",
+  "vendor/**/*",
+  "spec/**/*",
+]
+PuppetLint.configuration.ignore_paths = exclude_paths
+PuppetSyntax.exclude_paths = exclude_paths
+
+desc "Run syntax, lint, and spec tests."
+task :test => [
+  :syntax,
+  :lint,
+  :spec,
+]

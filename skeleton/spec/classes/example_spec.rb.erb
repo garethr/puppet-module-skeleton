@@ -1,25 +1,31 @@
 require 'spec_helper'
 
 describe '<%= metadata.name %>' do
-  let(:title) { '<%= metadata.name %>' }
+  context 'supported operating systems' do
+    ['Debian', 'RedHat'].each do |osfamily|
+      describe "<%= metadata.name %> class without any parameters on #{osfamily}" do
+        let(:params) {{ }}
+        let(:facts) {{
+          :osfamily => osfamily,
+        }}
 
-  ['Debian', 'RedHat'].each do |osfamily|
-    describe "<%= metadata.name %> class without any parameters on #{osfamily}" do 
-      let(:params) {{ }}
-      let(:facts) { { :osfamily => osfamily } }
+        it { should include_class('<%= metadata.name %>::params') }
 
-      it { should create_class('<%= metadata.name %>') }
-      it { should create_package('<%= metadata.name %>') }
-      it { should create_file('/etc/<%= metadata.name %>.conf') }
-      it {
-        should create_file('/etc/<%= metadata.name %>.conf')\
-        .with_content(/^server pool.<%= metadata.name %>.org$/)
-      }
-      if osfamily == 'RedHat' 
-        it { should create_service('<%= metadata.name %>d') }
-      else
-        it { should create_service('<%= metadata.name %>') }
+        it { should contain_class('<%= metadata.name %>::install') }
+        it { should contain_class('<%= metadata.name %>::config') }
+        it { should contain_class('<%= metadata.name %>::service') }
       end
+    end
+  end
+
+  context 'unsupported operating system' do
+    describe '<%= metadata.name %> class without any parameters on Solaris/Nexenta' do
+      let(:facts) {{
+        :osfamily        => 'Solaris',
+        :operatingsystem => 'Nexenta',
+      }}
+
+      it { expect { should }.to raise_error(Puppet::Error, /Nexenta not supported/) }
     end
   end
 end
