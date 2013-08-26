@@ -1,9 +1,10 @@
 # == Class <%= metadata.name %>::intall
 #
-class <%= metadata.name %>::install {
-  include <%= metadata.name %>::params
+class <%= metadata.name %>::install (
+  $package_name = $<%= metadata.name %>::params::package_name
+) inherits <%= metadata.name %>::params {
 
-  package { $<%= metadata.name %>::params::package_name:
+  package { $package_name:
     ensure => present,
   }
 }

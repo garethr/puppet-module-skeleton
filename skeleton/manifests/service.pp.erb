@@ -3,10 +3,11 @@
 # This class is meant to be called from <%= metadata.name %>
 # It ensure the service is running
 #
-class <%= metadata.name %>::service {
-  include <%= metadata.name %>::params
+class <%= metadata.name %>::service (
+  $service_name = $<%= metadata.name %>::params::service_name
+) inherits <%= metadata.name %>::params {
 
-  service { $<%= metadata.name %>::params::service_name:
+  service { $service_name:
     ensure     => running,
     enable     => true,
     hasstatus  => true,
