@@ -11,9 +11,10 @@ class <%= metadata.name %> (
 ) inherits <%= metadata.name %>::params {
 
   # validate parameters here
-
-  class { '<%= metadata.name %>::install': } ->
-  class { '<%= metadata.name %>::config': } ~>
-  class { '<%= metadata.name %>::service': } ->
-  Class['<%= metadata.name %>']
+  
+  anchor { '<%= metadata.name %>::begin': } ->
+  class  { '<%= metadata.name %>::install': } ->
+  class  { '<%= metadata.name %>::config': } ~>
+  class  { '<%= metadata.name %>::service': } ->
+  anchor { '<%= metadata.name %>::end': }
 }
