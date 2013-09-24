@@ -1,7 +1,6 @@
-# == Class <%= metadata.name %>::intall
+# == Class <%= metadata.name %>::install
 #
 class <%= metadata.name %>::install {
-  include <%= metadata.name %>::params
 
   package { $<%= metadata.name %>::params::package_name:
     ensure => present,
