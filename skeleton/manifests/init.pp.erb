@@ -11,7 +11,7 @@ class <%= metadata.name %> (
 ) inherits <%= metadata.name %>::params {
 
   # validate parameters here
-  
+
   anchor { '<%= metadata.name %>::begin': } ->
   class  { '::<%= metadata.name %>::install': } ->
   class  { '::<%= metadata.name %>::config': } ~>
