@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rake'
 gem 'puppet-lint'
-gem 'rspec-puppet'
+gem 'rspec-puppet', '~> 1.0.0'
 gem 'rspec-system-puppet'
 gem 'puppetlabs_spec_helper'
 gem 'travis'
