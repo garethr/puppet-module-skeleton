@@ -9,11 +9,13 @@ describe '<%= metadata.name %>' do
           :osfamily => osfamily,
         }}
 
+        it { should compile.with_all_deps }
+
         it { should contain_class('<%= metadata.name %>::params') }
 
-        it { should contain_class('<%= metadata.name %>::install') }
+        it { should contain_class('<%= metadata.name %>::install').that_comes_before('<%= metadata.name %>::config') }
         it { should contain_class('<%= metadata.name %>::config') }
-        it { should contain_class('<%= metadata.name %>::service') }
+        it { should contain_class('<%= metadata.name %>::service').that_subscribes_to('<%= metadata.name %>::config') }
       end
     end
   end
