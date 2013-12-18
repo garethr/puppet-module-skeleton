@@ -6,6 +6,11 @@
 class <%= metadata.name %>::service {
   include <%= metadata.name %>::params
 
+  # Make this a private class
+  if $caller_module_name != $module_name {
+    fail("Use of private class ${name} by ${caller_module_name}”)
+  }
+
   service { $<%= metadata.name %>::params::service_name:
     ensure     => running,
     enable     => true,
