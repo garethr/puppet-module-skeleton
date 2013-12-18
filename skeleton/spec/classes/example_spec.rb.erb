@@ -2,18 +2,20 @@ require 'spec_helper'
 
 describe '<%= metadata.name %>' do
   context 'supported operating systems' do
-    ['Debian', 'RedHat'].each do |osfamily|
+    ['RedHat'].each do |osfamily|
       describe "<%= metadata.name %> class without any parameters on #{osfamily}" do
         let(:params) {{ }}
         let(:facts) {{
           :osfamily => osfamily,
         }}
 
-        it { should include_class('<%= metadata.name %>::params') }
+        it { should compile.with_all_deps }
 
-        it { should contain_class('<%= metadata.name %>::install') }
+        it { should contain_class('<%= metadata.name %>::params') }
+
+        it { should contain_class('<%= metadata.name %>::install').that_comes_before('<%= metadata.name %>::config') }
         it { should contain_class('<%= metadata.name %>::config') }
-        it { should contain_class('<%= metadata.name %>::service') }
+        it { should contain_class('<%= metadata.name %>::service').that_subscribes_to('<%= metadata.name %>::config') }
       end
     end
   end
