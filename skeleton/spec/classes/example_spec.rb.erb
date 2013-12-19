@@ -21,13 +21,12 @@ describe '<%= metadata.name %>' do
   end
 
   context 'unsupported operating system' do
-    describe '<%= metadata.name %> class without any parameters on Solaris/Nexenta' do
+    describe '<%= metadata.name %> class without any parameters on Solaris' do
       let(:facts) {{
-        :osfamily        => 'Solaris',
-        :operatingsystem => 'Nexenta',
+        :osfamily => 'Solaris'
       }}
 
-      it { expect { should }.to raise_error(Puppet::Error, /Nexenta not supported/) }
+      it { expect { should }.to raise_error(Puppet::Error, /Solaris not supported/) }
     end
   end
 end
