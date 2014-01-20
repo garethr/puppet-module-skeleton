@@ -27,7 +27,7 @@ The just generate your new module structure like so:
 Once you have your module then install the development dependencies:
 
     cd user-module
-    bundle install
+    bundle install --path=~/.bundle
 
 Now you should have a bunch of rake commands to help with your module
 development:
