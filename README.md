@@ -39,11 +39,9 @@ development:
     rake help              # Display the list of available rake tasks
     rake lint              # Check puppet manifests with puppet-lint / Run puppet-lint
     rake spec              # Run spec tests in a clean fixtures directory
-    rake spec:system       # Run system tests
     rake spec_clean        # Clean up the fixtures directory
     rake spec_prep         # Create the fixtures directory
     rake spec_standalone   # Run spec tests on an existing fixtures directory
-    rake spec_system       # Run RSpec code examples
     rake syntax            # Syntax check Puppet manifests and templates
     rake syntax:manifests  # Syntax check Puppet manifests
     rake syntax:templates  # Syntax check Puppet templates
@@ -51,7 +49,6 @@ development:
 Of particular interst should be:
 
 * `rake spec` - run unit tests
-* `rake spec:system` - run full system tests (requires vagrant)
 * `rake lint` - checks against the puppet style guide
 * `rake syntax` - to check your have valid puppet and erb syntax
 
