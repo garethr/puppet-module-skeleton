@@ -12,10 +12,12 @@ describe '<%= metadata.name %>' do
         it { should compile.with_all_deps }
 
         it { should contain_class('<%= metadata.name %>::params') }
-
         it { should contain_class('<%= metadata.name %>::install').that_comes_before('<%= metadata.name %>::config') }
         it { should contain_class('<%= metadata.name %>::config') }
         it { should contain_class('<%= metadata.name %>::service').that_subscribes_to('<%= metadata.name %>::config') }
+
+        it { should contain_service('<%= metadata.name %>') }
+        it { should contain_package('<%= metadata.name %>').with_ensure('present') }
       end
     end
   end
@@ -27,7 +29,7 @@ describe '<%= metadata.name %>' do
         :operatingsystem => 'Nexenta',
       }}
 
-      it { expect { should }.to raise_error(Puppet::Error, /Nexenta not supported/) }
+      it { expect { should contain_package('<%= metadata.name %>') }.to raise_error(Puppet::Error, /Nexenta not supported/) }
     end
   end
 end
