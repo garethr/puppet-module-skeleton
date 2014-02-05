@@ -33,6 +33,7 @@ Now you should have a bunch of rake commands to help with your module
 development:
 
     bundle exec rake -T
+    rake acceptance        # Run acceptance tests
     rake build             # Build puppet module package
     rake clean             # Clean a built module package
     rake coverage          # Generate code coverage information
