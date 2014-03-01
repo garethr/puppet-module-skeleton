@@ -4,9 +4,8 @@
 # It ensure the service is running
 #
 class <%= metadata.name %>::service {
-  include <%= metadata.name %>::params
 
-  service { $<%= metadata.name %>::params::service_name:
+  service { $<%= metadata.name %>::service_name:
     ensure     => running,
     enable     => true,
     hasstatus  => true,

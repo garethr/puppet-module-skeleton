@@ -8,6 +8,8 @@
 #   Explanation of what this parameter affects and what it defaults to.
 #
 class <%= metadata.name %> (
+  $package_name = $<%= metadata.name %>::params::package_name,
+  $service_name = $<%= metadata.name %>::params::service_name,
 ) inherits <%= metadata.name %>::params {
 
   # validate parameters here
