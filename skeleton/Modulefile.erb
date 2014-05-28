@@ -4,7 +4,7 @@ source        '<%= metadata.source %>'
 author        '<%= metadata.author %>'
 license       '<%= metadata.license %>'
 summary       '<%= metadata.summary %>'
-description   '<%= metadata.description %>'
+description   '<%= defined?(metadata.description) ? metadata.description : metadata.summary %>'
 project_page  '<%= metadata.project_page %>'
 
 dependency 'puppetlabs/stdlib'
