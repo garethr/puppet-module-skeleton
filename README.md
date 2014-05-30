@@ -8,6 +8,8 @@ conventions.
 
 ## Installation
 
+> NOTE: Skeleton generation only works as non-root user.
+
 As a feature, puppet module tool will use ~/.puppet/var/puppet-module/skeleton
 as template for its `generate` command. The files provided here are
 meant to be better templates for use with the puppet module tool.
