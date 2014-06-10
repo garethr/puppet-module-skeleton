@@ -74,7 +74,7 @@ with:
 This will run the tests on an Ubuntu 12.04 virtual machine. You can also
 run the integration tests against Centos 6.5 with.
 
-    BEAKER_SET=centos-64-x64 bundle exec rake acceptances
+    RS_SET=centos-64-x64 bundle exec rake acceptances
 
 If you don't want to have to recreate the virtual machine every time you
 can use `BEAKER_DESTROY=no` and `BEAKER_PROVISION=no`. On the first run you will
