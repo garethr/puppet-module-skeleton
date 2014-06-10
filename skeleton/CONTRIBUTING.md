@@ -74,10 +74,10 @@ with:
 This will run the tests on an Ubuntu 12.04 virtual machine. You can also
 run the integration tests against Centos 6.5 with.
 
-    RS_SET=centos-64-x64 bundle exec rake acceptances
+    BEAKER_SET=centos-64-x64 bundle exec rake acceptances
 
 If you don't want to have to recreate the virtual machine every time you
-can use `RS_DESTROY=no` and `RS_PROVISION=no`. On the first run you will
-at least need `RS_PROVISION` set to yes (the default). The Vagrantfile
+can use `BEAKER_DESTROY=no` and `BEAKER_PROVISION=no`. On the first run you will
+at least need `BEAKER_PROVISION` set to yes (the default). The Vagrantfile
 for the created virtual machines will be in `.vagrant/beaker_vagrant_fies`.
 
