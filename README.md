@@ -8,19 +8,19 @@ conventions.
 
 ## Installation
 
-As a feature, puppet module tool will use ~/.puppet/var/puppet-module/skeleton
+As a feature, puppet module tool will use `~/.puppet/var/puppet-module/skeleton`
 as template for its `generate` command. The files provided here are
 meant to be better templates for use with the puppet module tool.
 
 As we don't want to have our .git files and this README in our skeleton, we export it like this:
 
-    git clone https://github.com/garethr/puppet-module-skeleton 
+    git clone https://github.com/garethr/puppet-module-skeleton
     cd puppet-module-skeleton
     find skeleton -type f | git checkout-index --stdin --force --prefix="$HOME/.puppet/var/puppet-module/" --
 
 ## Usage
 
-The just generate your new module structure like so:
+Then just generate your new module structure like so:
 
     puppet module generate user-module
 
