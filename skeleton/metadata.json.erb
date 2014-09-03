@@ -1,18 +1,16 @@
 {
   "name": "<%= metadata.full_module_name %>",
-  "version": "0.1.0",
-  "source": "<%= metadata.source %>",
+  "version": "<%= metadata.version %>",
   "author": "<%= metadata.author %>",
-  "license": "<%= metadata.license %>",
   "summary": "<%= metadata.summary %>",
-  "description": "<%= defined?(metadata.description) ? metadata.description : metadata.summary %>",
+  "license": "<%= metadata.license %>",
+  "source": "<%= metadata.source %>",
   "project_page": "<%= metadata.project_page %>",
+  "issues_url": "<%= metadata.issues_url %>",
   "dependencies": [
-
-  ],
-  "types": [
-
-  ],
-  "checksums": {
-  }
+    {
+      "name": "puppetlabs-stdlib",
+      "version_range": ">= 1.0.0"
+    }
+  ]
 }
