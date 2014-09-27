@@ -53,10 +53,6 @@ Of particular interst should be:
 * `rake lint` - checks against the puppet style guide
 * `rake syntax` - to check your have valid puppet and erb syntax
 
-You can run the tests in real time while modifying the source code, just run the following command and the tests will run each time you have changed a file in the manifests folder:
-
-	guard
-
 ## Thanks
 
 The trick used in the installation above, and a few other bits came from
