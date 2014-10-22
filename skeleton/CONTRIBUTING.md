@@ -59,6 +59,12 @@ Note also you can run the syntax, style and unit tests in one go with:
 
     bundle exec rake test
 
+## Automatically run the Integration tests
+
+During development of your puppet module you might want to run your unit tests a couple of times. You can use the following command to automate running the unit tests on every change made in the manifests folder.
+
+	bundle exec guard
+
 ## Integration tests
 
 The unit tests just check the code runs, not that it does exactly what
@@ -79,5 +85,5 @@ run the integration tests against Centos 6.5 with.
 If you don't want to have to recreate the virtual machine every time you
 can use `BEAKER_DESTROY=no` and `BEAKER_PROVISION=no`. On the first run you will
 at least need `BEAKER_PROVISION` set to yes (the default). The Vagrantfile
-for the created virtual machines will be in `.vagrant/beaker_vagrant_fies`.
+for the created virtual machines will be in `.vagrant/beaker_vagrant_files`.
 
