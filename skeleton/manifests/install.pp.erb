@@ -2,7 +2,7 @@
 #
 class <%= metadata.name %>::install {
 
-  package { $<%= metadata.name %>::package_name:
+  package { $::<%= metadata.name %>::package_name:
     ensure => present,
   }
 }
