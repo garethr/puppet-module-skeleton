@@ -2,6 +2,10 @@
 #
 class <%= metadata.name %>::install {
 
+  unless $caller_module_name == $module_name {
+    fail("private class called from ${caller_module_name}.")
+  }
+
   package { $::<%= metadata.name %>::package_name:
     ensure => present,
   }

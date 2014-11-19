@@ -5,6 +5,10 @@
 #
 class <%= metadata.name %>::service {
 
+  unless $caller_module_name == $module_name {
+    fail("private class called from ${caller_module_name}.")
+  }
+
   service { $::<%= metadata.name %>::service_name:
     ensure     => running,
     enable     => true,
