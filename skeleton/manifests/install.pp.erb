@@ -4,6 +4,8 @@
 #
 class <%= metadata.name %>::install {
 
+  private("This class is private. Disallowed direct declaration from ${caller_module_name}.")
+
   package { $::<%= metadata.name %>::package_name:
     ensure => present,
   }

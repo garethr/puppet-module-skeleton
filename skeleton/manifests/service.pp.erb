@@ -5,6 +5,8 @@
 #
 class <%= metadata.name %>::service {
 
+  private("This class is private. Disallowed direct declaration from ${caller_module_name}.")
+
   service { $::<%= metadata.name %>::service_name:
     ensure     => running,
     enable     => true,
