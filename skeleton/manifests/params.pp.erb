@@ -4,6 +4,11 @@
 # It sets variables according to platform
 #
 class <%= metadata.name %>::params {
+
+  unless $caller_module_name == $module_name {
+    fail("private class called from ${caller_module_name}.")
+  }
+
   case $::osfamily {
     'Debian': {
       $package_name = '<%= metadata.name %>'

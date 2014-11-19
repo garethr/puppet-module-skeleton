@@ -3,4 +3,8 @@
 # This class is called from <%= metadata.name %>
 #
 class <%= metadata.name %>::config {
+
+  unless $caller_module_name == $module_name {
+    fail("private class called from ${caller_module_name}.")
+  }
 }
