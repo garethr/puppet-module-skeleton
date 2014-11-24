@@ -1,7 +1,7 @@
 require 'beaker-rspec/spec_helper'
 require 'beaker-rspec/helpers/serverspec'
 
-unless ENV['RS_PROVISION'] == 'no'
+unless ENV['BEAKER_provision'] == 'no'
   hosts.each do |host|
     # Install Puppet
     if host.is_pe?
