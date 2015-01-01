@@ -59,11 +59,13 @@ Note also you can run the syntax, style and unit tests in one go with:
 
     bundle exec rake test
 
-## Automatically run the Integration tests
+### Automatically run the tests
 
-During development of your puppet module you might want to run your unit tests a couple of times. You can use the following command to automate running the unit tests on every change made in the manifests folder.
+During development of your puppet module you might want to run your unit
+tests a couple of times. You can use the following command to automate
+running the unit tests on every change made in the manifests folder.
 
-	bundle exec guard
+    bundle exec guard
 
 ## Integration tests
 
