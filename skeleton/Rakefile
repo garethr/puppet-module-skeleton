@@ -29,6 +29,7 @@ exclude_paths = [
   "vendor/**/*",
   "spec/**/*",
 ]
+Rake::Task[:lint].clear
 PuppetLint.configuration.ignore_paths = exclude_paths
 PuppetSyntax.exclude_paths = exclude_paths
 
