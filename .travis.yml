@@ -1,7 +1,8 @@
 ---
 language: ruby
 before_install:
-  - install.sh
+  - pwd
+  - ./install.sh
   - puppet module generate user-module --skip-interview
 sudo: false
 rvm:
