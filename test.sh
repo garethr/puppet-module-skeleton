@@ -1,6 +1,5 @@
 #!/bin/bash -xv
 cd user-module
-pwd
-cat Gemfile
-bundle install --gemfile=./Gemfile --path ../vendor
+export BUNDLE_GEMFILE=./Gemfile
+bundle install
 bundle exec rake test
