@@ -1,8 +1,7 @@
 ---
 language: ruby
-before_install:
+before_script:
   - ./install.sh
-  - gem install puppet --no-rdoc --no-ri
   - puppet module generate user-module --skip-interview
 sudo: false
 rvm:
