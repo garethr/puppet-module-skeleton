@@ -6,6 +6,9 @@ system), that you care about the puppet style guide, test using Travis,
 keep track of releases and structure your modules according to strong
 conventions.
 
+[![Build
+Status](https://travis-ci.org/garethr/puppet-module-skeleton.svg?branch=master)](https://travis-ci.org/garethr/puppet-module-skeleton)
+
 ## Installation
 
 As a feature, puppet module tool will use `~/.puppet/var/puppet-module/skeleton`
@@ -56,4 +59,4 @@ Of particular interst should be:
 ## Thanks
 
 The trick used in the installation above, and a few other bits came from
-another excellent module skeleton from [spiette](https://github.com/spiette/puppet-module-skeleton)
+another excellent module skeleton from [spiette](https://github.com/spiette/puppet-module-skeleton).
