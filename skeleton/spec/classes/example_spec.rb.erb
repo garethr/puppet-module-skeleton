@@ -2,22 +2,25 @@ require 'spec_helper'
 
 describe '<%= metadata.name %>' do
   context 'supported operating systems' do
-    ['Debian', 'RedHat'].each do |osfamily|
-      describe "<%= metadata.name %> class without any parameters on #{osfamily}" do
-        let(:params) {{ }}
-        let(:facts) {{
-          :osfamily => osfamily,
-        }}
+    on_supported_os.each do |os, facts|
+      context "on #{os}" do
+        let(:facts) do
+          facts
+        end
 
-        it { is_expected.to compile.with_all_deps }
+        context "<%= metadata.name %> class without any parameters" do
+          let(:params) {{ }}
 
-        it { is_expected.to contain_class('<%= metadata.name %>::params') }
-        it { is_expected.to contain_class('<%= metadata.name %>::install').that_comes_before('<%= metadata.name %>::config') }
-        it { is_expected.to contain_class('<%= metadata.name %>::config') }
-        it { is_expected.to contain_class('<%= metadata.name %>::service').that_subscribes_to('<%= metadata.name %>::config') }
+          it { is_expected.to compile.with_all_deps }
 
-        it { is_expected.to contain_service('<%= metadata.name %>') }
-        it { is_expected.to contain_package('<%= metadata.name %>').with_ensure('present') }
+          it { is_expected.to contain_class('<%= metadata.name %>::params') }
+          it { is_expected.to contain_class('<%= metadata.name %>::install').that_comes_before('<%= metadata.name %>::config') }
+          it { is_expected.to contain_class('<%= metadata.name %>::config') }
+          it { is_expected.to contain_class('<%= metadata.name %>::service').that_subscribes_to('<%= metadata.name %>::config') }
+
+          it { is_expected.to contain_service('<%= metadata.name %>') }
+          it { is_expected.to contain_package('<%= metadata.name %>').with_ensure('present') }
+        end
       end
     end
   end
