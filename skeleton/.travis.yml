@@ -18,15 +18,20 @@ env:
   - PUPPET_VERSION="~> 3.7.0" STRICT_VARIABLES=yes
   - PUPPET_VERSION="~> 3.7.0" STRICT_VARIABLES=yes FUTURE_PARSER=yes
 matrix:
+  include:
+  # Ruby 1.8.7
+  - rvm: 1.8.7
+    env: RSPEC_VERSION="~> 2.99"
+
   exclude:
   # Ruby 1.9.3
   - rvm: 1.9.3
     env: PUPPET_VERSION="~> 2.7.0"
-    
+
   # Ruby 2.0.0
   - rvm: 2.0.0
     env: PUPPET_VERSION="~> 2.7.0"
-    
+
   # Ruby 2.1.0
   - rvm: 2.1.0
     env: PUPPET_VERSION="~> 2.7.0"
