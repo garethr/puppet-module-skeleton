@@ -5,3 +5,6 @@
 /.vagrant
 /.bundle
 /vendor
+/Gemfile.lock
+/junit
+/log
