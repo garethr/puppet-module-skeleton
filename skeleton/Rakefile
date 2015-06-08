@@ -11,8 +11,6 @@ begin
 rescue LoadError
 end
 
-Rake::Task[:lint].clear
-
 PuppetLint.configuration.relative = true
 PuppetLint.configuration.send("disable_80chars")
 PuppetLint.configuration.log_format = "%{path}:%{linenumber}:%{check}:%{KIND}:%{message}"
