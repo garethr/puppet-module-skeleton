@@ -8,3 +8,4 @@
 /Gemfile.lock
 /junit
 /log
+.yardoc
