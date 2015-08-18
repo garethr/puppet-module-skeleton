@@ -1,3 +1,3 @@
 source "https://rubygems.org"
 
-gem "puppet", ENV['PUPPET_VERSION'] || '~> 3.7.0'
+gem "puppet", ENV['PUPPET_GEM_VERSION'] || '~> 3.8.0'
