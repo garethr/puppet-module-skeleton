@@ -12,8 +12,9 @@ Status](https://travis-ci.org/garethr/puppet-module-skeleton.svg?branch=master)]
 ## Installation
 
 As a feature, puppet module tool will use `~/.puppet/var/puppet-module/skeleton`
-as template for its `generate` command. The files provided here are
-meant to be better templates for use with the puppet module tool.
+(or `~/.puppetlabs/opt/puppet/cache/puppet-module/` for Puppet 4) as template for
+its `generate` command. The files provided here are meant to be better templates
+for use with the puppet module tool.
 
 As we don't want to have our .git files and this README in our skeleton, we export it like this:
 
@@ -56,6 +57,7 @@ Of particular interst should be:
 * `rake spec` - run unit tests
 * `rake lint` - checks against the puppet style guide
 * `rake syntax` - to check your have valid puppet and erb syntax
+* `rake metadata_lint` - to check your have a valid metadata.json file
 
 ## Thanks
 
