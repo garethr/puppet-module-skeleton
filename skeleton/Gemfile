@@ -9,6 +9,8 @@ group :test do
   gem "metadata-json-lint"
   gem "rspec-puppet-facts"
   gem "rubocop"
+  gem 'simplecov'
+  gem 'simplecov-console'
 
   gem "puppet-lint-absolute_classname-check"
   gem "puppet-lint-leading_zero-check"
