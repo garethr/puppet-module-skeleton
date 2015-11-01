@@ -16,11 +16,25 @@ As a feature, puppet module tool will use `~/.puppet/var/puppet-module/skeleton`
 its `generate` command. The files provided here are meant to be better templates
 for use with the puppet module tool.
 
-As we don't want to have our .git files and this README in our skeleton, we export it like this:
+## Manual install
+
+As we don't want to have our .git files and this README in our skeleton, we export it like this : 
+
+### for puppet 3.x:
 
     git clone https://github.com/garethr/puppet-module-skeleton
     cd puppet-module-skeleton
     find skeleton -type f | git checkout-index --stdin --force --prefix="$HOME/.puppet/var/puppet-module/" --
+
+### for puppet 4.x
+
+    git clone https://github.com/garethr/puppet-module-skeleton
+    cd puppet-module-skeleton
+    find skeleton -type f | git checkout-index --stdin --force --prefix="$HOME/.puppetlabs/var/puppet-module/" --
+
+## the install.sh
+
+I provided a script installing the skeleton in the right place depending on the detected puppet version
 
 ## Usage
 
