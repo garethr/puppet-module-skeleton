@@ -1,6 +1,12 @@
 #!/bin/bash
-if [ $(puppet --version |sed -e 's/\..*$//' ) -gt 3 ]; then
-  find skeleton -type f | git checkout-index --stdin --force --prefix="$HOME/.puppetlabs/opt/puppet/cache/puppet-module/" --
-else
-  find skeleton -type f | git checkout-index --stdin --force --prefix="$HOME/.puppet/var/puppet-module/" --
-fi
+
+case $(puppet --version) in
+  3*)
+    install_dir="$HOME/.puppet/var/puppet-module/"
+    ;;
+  4*)
+    install_dir="$HOME/.puppetlabs/opt/puppet/cache/puppet-module/"
+    ;;
+esac
+
+find skeleton -type f | git checkout-index --stdin --force --prefix=$install_dir
