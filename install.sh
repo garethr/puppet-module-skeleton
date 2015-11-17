@@ -9,4 +9,5 @@ case $(puppet --version) in
     ;;
 esac
 
-find skeleton -type f | git checkout-index --stdin --force --prefix=$install_dir
+find skeleton -type f -not -name .gitkeep | git checkout-index --stdin --force --prefix=$install_dir
+
