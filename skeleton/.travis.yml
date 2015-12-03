@@ -3,13 +3,13 @@ language: ruby
 bundler_args: --without development system_tests
 before_install: rm Gemfile.lock || true
 rvm:
-  - 1.8.7
+  #- 1.8.7 This version is incompatible with the used gems in this skeleton
   - 1.9.3
   - 2.0.0
   - 2.1.0
 script: bundle exec rake test
 env:
-  - PUPPET_GEM_VERSION="~> 2.7.0"
+  #- PUPPET_GEM_VERSION="~> 2.7.0" -- Needs ruby 1.8.7
   - PUPPET_GEM_VERSION="~> 3.2.0"
   - PUPPET_GEM_VERSION="~> 3.3.0"
   - PUPPET_GEM_VERSION="~> 3.4.0"
