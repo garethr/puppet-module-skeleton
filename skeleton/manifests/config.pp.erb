@@ -3,4 +3,7 @@
 # This class is called from <%= metadata.name %> for service config.
 #
 class <%= metadata.name %>::config {
+
+  private("This class is private. Disallowed direct declaration from ${caller_module_name}.")
+
 }

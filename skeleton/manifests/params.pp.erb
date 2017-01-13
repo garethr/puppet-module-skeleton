@@ -4,6 +4,7 @@
 # It sets variables according to platform.
 #
 class <%= metadata.name %>::params {
+
   case $::osfamily {
     'Debian': {
       $package_name = '<%= metadata.name %>'
