@@ -8,7 +8,7 @@ group :test do
   gem 'rspec-core', '< 3.2.0' if RUBY_VERSION < '1.9'
   gem 'rspec-puppet'
   gem 'rspec-puppet-facts'
-  gem 'rubocop', if RUBY_VERSION < '2.0.0' then '< 0.42.0' end
+  gem 'rubocop', if RUBY_VERSION < '2.0.0' or Gem::Version.new((ENV['PUPPET_GEM_VERSION'] || '3.8.0').split(' ').last) < Gem::Version.new('4.0.0') then '< 0.42.0' end
   gem 'simplecov', '>= 0.11.0'
   gem 'simplecov-console', if RUBY_VERSION < '2.0.0' then '< 0.4.0' end
 
