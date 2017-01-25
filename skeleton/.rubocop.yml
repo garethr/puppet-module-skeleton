@@ -168,6 +168,9 @@ Style/ClassAndModuleChildren:
 Style/ClassCheck:
   Enabled: false
 
+Metrics/BlockLength:
+  Enabled: false
+
 Metrics/ClassLength:
   Enabled: false
 
