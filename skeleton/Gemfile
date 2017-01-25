@@ -10,7 +10,7 @@ group :test do
   gem 'rspec-puppet-facts'
   gem 'rubocop', if RUBY_VERSION < '2.0.0' then '< 0.42.0' end
   gem 'simplecov', '>= 0.11.0'
-  gem 'simplecov-console'
+  gem 'simplecov-console', if RUBY_VERSION < '2.0.0' then '< 0.4.0' end
 
   gem 'puppet-lint-absolute_classname-check'
   gem 'puppet-lint-classes_and_types_beginning_with_digits-check'
