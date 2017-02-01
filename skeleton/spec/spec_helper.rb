@@ -4,15 +4,19 @@ require 'rspec-puppet-facts'
 include RspecPuppetFacts
 
 require 'simplecov'
-require 'simplecov-console'
+unless RUBY_VERSION =~ %r{^1.9}
+  require 'coveralls'
+  Coveralls.wear!
+end
+
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
 
 SimpleCov.start do
   add_filter '/spec'
   add_filter '/vendor'
-  formatter SimpleCov::Formatter::MultiFormatter.new([
-    SimpleCov::Formatter::HTMLFormatter,
-    SimpleCov::Formatter::Console
-  ])
 end
 
 RSpec.configure do |c|
