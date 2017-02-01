@@ -3,11 +3,16 @@ require 'bundler/setup'
 
 require 'puppetlabs_spec_helper/rake_tasks'
 require 'puppet/version'
-require 'puppet/vendor/semantic/lib/semantic' unless Puppet.version.to_f < 3.6
 require 'puppet-lint/tasks/puppet-lint'
 require 'puppet-syntax/tasks/puppet-syntax'
 require 'metadata-json-lint/rake_task'
 require 'rubocop/rake_task'
+
+if Puppet.version.to_f >= 4.9
+    require 'semantic_puppet'
+elsif Puppet.version.to_f >= 3.6 && Puppet.version.to_f < 4.9
+    require 'puppet/vendor/semantic/lib/semantic'
+end
 
 # These gems aren't always present, for instance
 # on Travis with --without development
