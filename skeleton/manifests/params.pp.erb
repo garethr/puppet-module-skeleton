@@ -14,7 +14,9 @@ class <%= metadata.name %>::params {
       $service_name = '<%= metadata.name %>'
     }
     default: {
-      fail("${::operatingsystem} not supported")
+      $package_name = '<%= metadata.name %>'
+      $service_name = '<%= metadata.name %>'
+      warn("${::operatingsystem} not fully supported")
     }
   }
 }
